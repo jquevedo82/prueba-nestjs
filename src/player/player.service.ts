@@ -25,4 +25,14 @@ export class PlayerService {
   getPlayer(id: any): Player {
     return this.players.find((player) => player.id == id);
   }
+
+  //...player carga los datos de ese json q llega 
+  //a el array de json q esta seleccionado
+  insertPlayer(player): Player {
+    this.players.push({
+      id: this.players.length + 1,
+      ...player,
+    });
+    return this.players[this.players.length - 1];
+  }
 }

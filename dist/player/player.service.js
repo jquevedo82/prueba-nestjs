@@ -33,6 +33,10 @@ let PlayerService = class PlayerService {
     getPlayer(id) {
         return this.players.find((player) => player.id == id);
     }
+    insertPlayer(player) {
+        this.players.push(Object.assign({ id: this.players.length + 1 }, player));
+        return this.players[this.players.length - 1];
+    }
 };
 PlayerService = __decorate([
     (0, common_1.Injectable)()

@@ -5,4 +5,5 @@ export declare class PlayerController {
     constructor(playerService: PlayerService);
     getAll(): Player[];
     getPlayer(id: any): Player;
+    crearPlayer(body: any): Player;
 }

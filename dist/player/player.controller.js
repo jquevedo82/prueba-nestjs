@@ -26,6 +26,9 @@ let PlayerController = class PlayerController {
     getPlayer(id) {
         return this.playerService.getPlayer(id);
     }
+    crearPlayer(body) {
+        return this.playerService.insertPlayer(body);
+    }
 };
 __decorate([
     (0, common_1.Get)(),
@@ -35,17 +38,21 @@ __decorate([
 ], PlayerController.prototype, "getAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", player_entity_1.Player)
 ], PlayerController.prototype, "getPlayer", null);
+__decorate([
+    (0, common_1.Post)(),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], PlayerController.prototype, "crearPlayer", null);
 PlayerController = __decorate([
     (0, common_1.Controller)('player'),
     __metadata("design:paramtypes", [player_service_1.PlayerService])
 ], PlayerController);
 exports.PlayerController = PlayerController;
-function params(arg0) {
-    throw new Error('Function not implemented.');
-}
 //# sourceMappingURL=player.controller.js.map

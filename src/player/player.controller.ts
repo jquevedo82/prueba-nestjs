@@ -1,4 +1,11 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  ParseIntPipe,
+  Post,
+} from '@nestjs/common';
 import { Player } from './player.entity';
 import { PlayerService } from './player.service';
 
@@ -11,14 +18,17 @@ export class PlayerController {
     return this.playerService.verPlayers();
   }
 
+  //validacion parseintpipe si no es entero devuelve 404
+  //ver validaciones
   @Get(':id')
-  getPlayer(@Param('id') id):Player{
+  getPlayer(@Param('id', ParseIntPipe) id): Player {
     return this.playerService.getPlayer(id);
-
   }
 
+  @Post()
+  crearPlayer(@Body() body) {
+    //return body;
+    //return `crear un jugador: ${body.name} juega de ${body.posicion}`;
+    return this.playerService.insertPlayer(body);
+  }
 }
-function params(arg0: string) {
-  throw new Error('Function not implemented.');
-}
-

@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
+const swagger_1 = require("@nestjs/swagger");
 const app_service_1 = require("./app.service");
 let AppController = class AppController {
     constructor(appService) {
@@ -31,12 +32,15 @@ let AppController = class AppController {
 };
 __decorate([
     (0, common_1.Get)(),
+    (0, swagger_1.ApiCreatedResponse)({ description: 'Llamado a todos' }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)
 ], AppController.prototype, "Todos", null);
 __decorate([
     (0, common_1.Post)(),
+    (0, swagger_1.ApiOkResponse)({ description: 'Creando uno nuevo' }),
+    (0, swagger_1.ApiUnauthorizedResponse)({ description: 'No tiene autorizacion' }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)
